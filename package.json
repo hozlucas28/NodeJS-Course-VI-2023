@@ -1,4 +1,8 @@
 {
+	"author": "hozlucas28",
+	"bugs": {
+		"url": "https://github.com/hozlucas28/NodeJS-Course-VI-2023/issues"
+	},
 	"devDependencies": {
 		"husky": "^8.0.3",
 		"lint-staged": "^14.0.1",
@@ -9,5 +13,23 @@
 	},
 	"lint-staged": {
 		"**/*": "prettier --write --ignore-unknown"
-	}
+	},
+	"description": "Repository of NodeJS course (part six) of Midudev.",
+	"homepage": "https://github.com/hozlucas28/NodeJS-Course-VI-2023#readme",
+	"keywords": [
+		"NodeJS",
+		"Node",
+		"Course",
+		"Midudev",
+		"Part six"
+	],
+	"license": "MIT",
+	"main": "src/index.js",
+	"name": "nodejs-course-vi-2023",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hozlucas28/NodeJS-Course-VI-2023.git"
+	},
+	"type": "module",
+	"version": "1.0.0"
 }
