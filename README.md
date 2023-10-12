@@ -1,5 +1,5 @@
 <h1 align="center">
-    NodeJS Course - Vi [2023]
+    NodeJS Course - VI [2023]
 </h1>
 
 <h4 align="center">
