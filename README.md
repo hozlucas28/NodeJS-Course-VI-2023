@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://github.com/hozlucas28/SQL-Server-Course-2023/assets/88015479/5faaae84-1197-43be-a6fa-5d74cb965829" width="425">
+    <img src="./.github/nodejs-logo.png" width="425">
 </p>
 
 <h2>
