@@ -28,43 +28,32 @@ CREATE TABLE IF NOT EXISTS messages (
 )`)
 
 io.on('connection', async (socket) => {
-	let result
-
 	socket.on('message', async (msg) => {
-		try {
-			result = await db.execute({
-				sql: `INSERT INTO messages (content) VALUES (:msg)`,
-				args: { msg },
-			})
-		} catch (e) {
-			console.error(e)
-			return
-		}
+		const result = await db.execute({
+			sql: `INSERT INTO messages (content) VALUES (:msg)`,
+			args: { msg },
+		})
 
 		io.emit('message', msg, result.lastInsertRowid.toString())
 	})
 
-	if (!socket.recovered) {
-		try {
-			const results = await db.execute({
-				sql: 'SELECT id, content FROM messages WHERE id > :id',
-				args: {
-					id: socket.handshake.auth.serverOffset ?? 0,
-				},
-			})
+	if (socket.recovered) return
 
-			results.rows.forEach((row) => {
-				socket.emit('message', row.content, row.id.toString())
-			})
-		} catch (e) {
-			console.error(e)
-		}
-	}
+	const results = await db.execute({
+		sql: 'SELECT id, content FROM messages WHERE id > :id',
+		args: {
+			id: socket.handshake.auth.serverOffset ?? 0,
+		},
+	})
+
+	results.rows.forEach((row) => {
+		socket.emit('message', row.content, row.id.toString())
+	})
 })
 
 app.use(logger('dev'))
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
 	res.sendFile(process.cwd() + '/client/index.html')
 })
 
