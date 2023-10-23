@@ -30,7 +30,14 @@
     Installation
 </h2>
 <p>
-    [TODO]
+    Clone the repository, install <a href="https://nodejs.org/es/" target="_blank">Node.js</a> (runtime environment) and use <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> (code editor). Then, run command <code>pnpm install</code> to install all packages used in this repository. Now, runs <code>pnpm dev</code> in your terminal to test the web sockets server in your local server.
+</p>
+
+<p>
+    <i>
+        <strong>• Important:</strong>
+            You also need a database in <a href="https://turso.tech/">turso</a>, and an <code>env</code> variable call <code>TURSO_DB_TOKEN</code> with the value of your turso database token.
+    </i>
 </p>
 
 <h2>
